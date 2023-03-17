@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:15.2
+    restart: always
+    ports:
+      - "5555:5432"
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+    container_name: pendingLifeDB
+    volumes:
+      - ./postgres:/var/lib/postgresql/data
